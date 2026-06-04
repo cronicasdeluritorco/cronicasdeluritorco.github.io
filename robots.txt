@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cronicasdeluritorco.github.io/sitemap.xml

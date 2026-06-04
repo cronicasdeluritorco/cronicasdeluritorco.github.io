@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crónicas desde el Uritorco</title>
-<!-- FAVICONS -->
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="manifest" href="images/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Primario -->
+    <title>Crónicas desde el Uritorco | Historias, Leyendas e Investigaciones</title>
+    <meta name="description" content="Portal de crónicas, leyendas e investigaciones sobre el Uritorco y Capilla del Monte. Historia real, geometría sagrada y la esencia de las sierras de Córdoba.">
+    <meta name="keywords" content="Uritorco, Capilla del Monte, leyendas, crónicas, historia, geometría sagrada, sierras de Córdoba, bastón de mando, Raúl Horas, misterios, investigaciones, Córdoba Argentina">
+    <meta name="author" content="raulhora">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cronicasdeluritorco.github.io/">
+    
+    <!-- FAVICONS (tus archivos) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Open Graph (Facebook, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Crónicas desde el Uritorco">
+    <meta property="og:description" content="Historias, leyendas e investigaciones desde las sierras de Córdoba. Un espacio para compartir, no para imponer.">
+    <meta property="og:image" content="https://cronicasdeluritorco.github.io/images/uritorco-portada.jpg">
+    <meta property="og:url" content="https://cronicasdeluritorco.github.io/">
+    <meta property="og:site_name" content="Crónicas desde el Uritorco">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crónicas desde el Uritorco">
+    <meta name="twitter:description" content="Historias, leyendas e investigaciones desde las sierras de Córdoba.">
+    <meta name="twitter:image" content="https://cronicasdeluritorco.github.io/images/uritorco-portada.jpg">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Crónicas desde el Uritorco",
+      "description": "Portal de crónicas, leyendas e investigaciones sobre el Uritorco y Capilla del Monte",
+      "url": "https://cronicasdeluritorco.github.io/",
+      "image": "https://cronicasdeluritorco.github.io/images/uritorco-portada.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Raúl Horas"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Raúl Horas"
+      },
+      "datePublished": "2025-01-01",
+      "inLanguage": "es-AR"
+    }
+    </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,10 +94,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 10px 20px;
+            padding: 6px 15px;
             text-decoration: none;
             border-right: 1px solid rgba(201, 169, 110, 0.3);
-            min-width: 140px;
+            min-width: 130px;
             transition: all 0.3s ease;
         }
 
@@ -88,29 +134,29 @@
         /* Reproductor dentro del item */
         .radio-player-box {
             width: 100%;
-            margin-top: 10px;
-            padding-top: 10px;
+            margin-top: 4px;
+            padding-top: 4px;
             border-top: 1px solid rgba(201, 169, 110, 0.3);
         }
 
         .radio-player-box iframe {
             width: 100%;
-            height: 60px;
+            height: 45px;
             border: none;
             background: transparent;
         }
 
         .nav-spacer {
-            height: 180px; /* Aumentado para el reproductor */
+            height: 140px;
         }
 
         /* Video de fondo */
         .video-background {
             position: fixed;
-            top: 180px; /* Ajustado */
+            top: 140px;
             left: 0;
             width: 100%;
-            height: calc(100% - 180px);
+            height: calc(100% - 140px);
             z-index: -2;
         }
 
@@ -124,10 +170,10 @@
 
         .overlay {
             position: fixed;
-            top: 180px;
+            top: 140px;
             left: 0;
             width: 100%;
-            height: calc(100% - 180px);
+            height: calc(100% - 140px);
             background: rgba(10, 10, 10, 0.2);
             z-index: -1;
         }
@@ -289,9 +335,9 @@
             .nav-logo { width: 40px; height: 40px; }
             .nav-text { font-size: 0.75em; }
             .hero-header { margin: 20px; }
-            .radio-player-box iframe { height: 50px; }
-            .nav-spacer { height: 160px; }
-            .video-background, .overlay { top: 160px; height: calc(100% - 160px); }
+            .radio-player-box iframe { height: 40px; }
+            .nav-spacer { height: 120px; }
+            .video-background, .overlay { top: 120px; height: calc(100% - 120px); }
         }
     </style>
 </head>
@@ -333,7 +379,6 @@
             <a href="https://cafecito.app/flashbackradio" target="_blank" class="nav-item">
                 <video autoplay muted loop playsinline class="nav-logo" poster="images/cafecito-poster.jpg">
                     <source src="images/cafecito.mp4" type="video/mp4">
-                    <!-- Fallback si no soporta video -->
                     <img src="https://static.wixstatic.com/media/da6f98_5c139a923d8849978c3b8ce6ed99aeac~mv2.png" alt="Cafecito" class="nav-logo">
                 </video>
                 <span class="nav-text">Cafecito</span>
