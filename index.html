@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crónicas desde el Uritorco</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        /* === MENÚ SUPERIOR === */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 2px solid #c9a96e;
+            padding: 10px 0 15px 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .nav-text {
+            color: #c9a96e;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Reproductor inline */
+        .radio-player-inline {
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .radio-player-inline iframe {
+            width: 100%;
+            height: 60px;
+            border: none;
+            background: transparent;
+        }
+
+        .nav-spacer {
+            height: 160px; /* Aumentado para dar espacio al reproductor */
+        }
+
+        /* Video de fondo */
+        .video-background {
+            position: fixed;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 90px);
+            z-index: -2;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0.55;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 90px);
+            background: rgba(10, 10, 10, 0.2);
+            z-index: -1;
+        }
+
+        /* === CABECERA CON IMAGEN URITORCO === */
+        .hero-header {
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
+            border: 3px solid #c9a96e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
+        }
+
+        .hero-header img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === SECCIÓN DE INTRO === */
+        .intro-section {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 60px 30px;
+            text-align: center;
+            border-top: 3px solid #c9a96e;
+            border-bottom: 2px solid rgba(201, 169, 110, 0.4);
+            margin: 40px auto;
+            max-width: 1000px;
+            border-radius: 12px;
+        }
+
+        .intro-text {
+            font-size: 1.35em;
+            color: #d0d0d0;
+            line-height: 2;
+            font-style: italic;
+        }
+
+        .intro-text strong {
+            color: #c9a96e;
+            display: block;
+            margin-bottom: 25px;
+            font-size: 1.3em;
+            font-style: normal;
+        }
+
+        /* === CRÓNICAS === */
+        .cronicas-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            color: #c9a96e;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(201, 169, 110, 0.4);
+            padding-bottom: 20px;
+        }
+
+        .cronica-preview {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 35px;
+            margin-bottom: 35px;
+            border-left: 5px solid #c9a96e;
+            border-radius: 8px;
+        }
+
+        .cronica-preview h3 {
+            color: #c9a96e;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .cronica-preview p {
+            color: #c8c8c8;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #c9a96e;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .read-more:hover {
+            color: #e8d4a8;
+            text-decoration: underline;
+        }
+
+        /* === BOX DE APOYO === */
+        .support-box {
+            text-align: center;
+            padding: 50px 30px;
+            background: rgba(20, 20, 20, 0.95);
+            margin: 60px auto;
+            max-width: 900px;
+            border-radius: 12px;
+            border: 2px solid rgba(201, 169, 110, 0.5);
+        }
+
+        .support-box h2 {
+            color: #c9a96e;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            margin: 12px;
+            background: linear-gradient(135deg, #c9a96e 0%, #b89558 100%);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(201, 169, 110, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 3px solid #c9a96e;
+            color: #888;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { gap: 15px; }
+            .nav-logo { width: 40px; height: 40px; }
+            .nav-text { font-size: 0.75em; }
+            .hero-header { margin: 20px; }
+            .radio-player-inline { width: 180px; top: 80px; }
+            .nav-spacer { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VIDEO DE FONDO (VELA Y PAPIRO) -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="images/vela-fondo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- === MENÚ SUPERIOR === -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="https://creacionesweb1320.github.io" target="_blank" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_2493d16d46f9442d9194f2fa6edc2b23~mv2.gif" alt="Creaciones 13:20" class="nav-logo">
+                <span class="nav-text">Creaciones 13:20</span>
+            </a>
+            
+            <a href="#cronicas" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_d7417aa13a9b4a75af096acc03354264~mv2.gif" alt="Crónicas" class="nav-logo">
+                <span class="nav-text">Crónicas</span>
+            </a>
+            
+            <a href="https://flashbackradio2025.github.io/" target="_blank" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_152ffd5bcbd64e94a2ba49fc1ab71345~mv2.gif" alt="FlashBack Radio" class="nav-logo">
+                <span class="nav-text">FlashBack Radio</span>
+            </a>
+            
+            <a href="https://cafecito.app/flashbackradio" target="_blank" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_5c139a923d8849978c3b8ce6ed99aeac~mv2.png" alt="Cafecito" class="nav-logo">
+                <span class="nav-text">Cafecito</span>
+            </a>
+            
+            <a href="#" target="_blank" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_d7417aa13a9b4a75af096acc03354264~mv2.gif" alt="Patreon" class="nav-logo">
+                <span class="nav-text">Patreon</span>
+            </a>
+        </div>
+        
+        <!-- Reproductor inline debajo del menú -->
+        <div class="radio-player-inline">
+            <iframe src="player.html"></iframe>
+        </div>
+    </nav>
+
+    <div class="nav-spacer"></div>
+
+    <!-- === CABECERA CON IMAGEN DEL URITORCO === -->
+    <div class="hero-header">
+        <img src="images/uritorco-portada.jpg" alt="Crónicas desde el Uritorco">
+    </div>
+
+    <!-- === SECCIÓN DE INTRO === -->
+    <section class="intro-section">
+        <p class="intro-text">
+            <strong>"Historias, leyendas e investigaciones desde las sierras de Córdoba"</strong>
+            Un espacio para compartir, no para imponer. Aquí exploramos la esencia real de Capilla del Monte, 
+            sus misterios, su historia y las conexiones ancestrales que hacen único a este lugar.
+        </p>
+    </section>
+
+    <!-- === CRÓNICAS === -->
+    <section class="cronicas-section" id="cronicas">
+        <h2 class="section-title">Crónicas Recientes</h2>
+        
+        <article class="cronica-preview">
+            <h3>Bienvenidos a este espacio</h3>
+            <p>Este es el primer post de Crónicas desde el Uritorco. Acá vamos a compartir historias reales, 
+            leyendas documentadas e investigaciones sobre este lugar único. Sin humo, sin fabulaciones.</p>
+            <a href="#" class="read-more">Leer más →</a>
+        </article>
+
+        <article class="cronica-preview">
+            <h3>Próximamente: La leyenda del Bastón de Mando</h3>
+            <p>Estamos preparando una crónica profunda sobre el Bastón de Mando, sus conexiones con Scalubur, 
+            los Templarios y las tradiciones ancestrales.</p>
+            <a href="#" class="read-more">Leer más →</a>
+        </article>
+
+        <!-- Box de apoyo -->
+        <div class="support-box">
+            <h2>¿Te resuena este proyecto?</h2>
+            <p>Si lo que compartimos te nutre, podés sostener este trabajo de dos maneras:</p>
+            <a href="https://cafecito.app/flashbackradio" class="btn" target="_blank">☕ Invitame un café</a>
+            <a href="#" class="btn" target="_blank">🔗 Sostené en Patreon</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Crónicas desde el Uritorco | Capilla del Monte, Córdoba, Argentina</p>
+    </footer>
+
+</body>
+</html>
