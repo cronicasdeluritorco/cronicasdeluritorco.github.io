@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Primario -->
+    <title>Bienvenidos a este espacio | Crónicas desde el Uritorco</title>
+    <meta name="description" content="Primer post de Crónicas desde el Uritorco. Acá vamos a compartir historias reales, leyendas documentadas e investigaciones.">
+    <meta name="author" content="raulhora">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cronicasdeluritorco.github.io/cronicas/bienvenidos.html">
+    
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="../images/site.webmanifest">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Bienvenidos a este espacio | Crónicas desde el Uritorco">
+    <meta property="og:description" content="Primer post de Crónicas desde el Uritorco. Historias reales, leyendas documentadas e investigaciones.">
+    <meta property="og:image" content="https://cronicasdeluritorco.github.io/images/uritorco-portada.jpg">
+    <meta property="og:url" content="https://cronicasdeluritorco.github.io/cronicas/bienvenidos.html">
+    <meta property="og:site_name" content="Crónicas desde el Uritorco">
+    <meta property="og:locale" content="es_AR">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        /* === VIDEO DE FONDO (VISIBLE Y CON VELA) === */
+        .video-background {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .video-background video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center top; /* Centra mostrando la vela arriba */
+            opacity: 0.75; /* ← AUMENTADO: Más visible que en el home */
+        }
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Capa oscura muy sutil */
+            z-index: -1;
+        }
+
+        /* === MENÚ SUPERIOR === */
+        .top-nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 2px solid #c9a96e;
+            padding: 8px 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: center; align-items: center; gap: 0; padding: 0 20px;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 5px 12px; text-decoration: none;
+            border-right: 1px solid rgba(201, 169, 110, 0.3); min-width: 110px; transition: all 0.3s ease;
+        }
+        .nav-item.radio-item {
+            flex-direction: row; gap: 8px; min-width: 240px; padding: 5px 15px;
+        }
+        .nav-item:hover { background: rgba(201, 169, 110, 0.1); }
+        .nav-item:last-child { border-right: none; }
+        .nav-logo {
+            width: 40px; height: 40px; object-fit: contain; border-radius: 6px;
+            filter: drop-shadow(0 0 6px rgba(201, 169, 110, 0.6)); flex-shrink: 0;
+        }
+        .nav-text {
+            color: #c9a96e; font-size: 0.75em; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px; text-align: center; line-height: 1.2;
+        }
+        .radio-player-box { width: 160px; }
+        .radio-player-box iframe { width: 100%; height: 40px; border: none; background: transparent; }
+        .nav-spacer { height: 65px; }
+
+        /* === BARRA DE PROGRESO === */
+        .reading-progress {
+            position: fixed; top: 65px; left: 0; height: 3px; width: 0%;
+            background: linear-gradient(90deg, #c9a96e, #e8d4a8);
+            z-index: 999; transition: width 0.1s;
+        }
+
+        /* === BOX DE LECTURA OSCURO === */
+        .cronica-post {
+            max-width: 850px;
+            margin: 100px auto 60px; /* Separado del menú */
+            padding: 50px 40px;
+            background: rgba(8, 8, 8, 0.94); /* ← BOX OSCURO PARA LECTURA */
+            backdrop-filter: blur(8px); /* Efecto vidrio esmerilado */
+            border: 1px solid rgba(201, 169, 110, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .post-header { margin-bottom: 40px; text-align: center; }
+        .post-meta {
+            color: #888; font-size: 0.9em; margin-bottom: 15px;
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+        }
+        .post-meta span { border-right: 1px solid #444; padding-right: 20px; }
+        .post-meta span:last-child { border-right: none; padding-right: 0; }
+        
+        .post-title {
+            font-size: 2.8em; color: #c9a96e; line-height: 1.2; margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .post-featured-image {
+            width: 100%; max-height: 500px; object-fit: cover;
+            border-radius: 12px; border: 2px solid #c9a96e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin-bottom: 40px;
+        }
+
+        /* === TIPOGRAFÍA === */
+        .post-content {
+            font-size: 1.2em; line-height: 2; color: #e0e0e0; /* Texto más claro para contraste */
+        }
+        .post-content p { margin-bottom: 25px; text-align: justify; }
+        .post-content h2, .post-content h3 {
+            color: #c9a96e; margin: 50px 0 25px; font-size: 2em;
+            border-left: 4px solid #c9a96e; padding-left: 20px;
+        }
+        .post-content blockquote {
+            border-left: 4px solid #e8d4a8; margin: 30px 0; padding: 25px 30px;
+            background: rgba(201, 169, 110, 0.08); font-style: italic; color: #e8d4a8;
+            border-radius: 0 12px 12px 0; font-size: 1.1em;
+        }
+        .post-content img {
+            max-width: 100%; height: auto; border-radius: 8px; margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .post-content a {
+            color: #e8d4a8; text-decoration: underline; text-decoration-color: rgba(232,212,168,0.4);
+            transition: all 0.3s;
+        }
+        .post-content a:hover { text-decoration-color: #e8d4a8; }
+
+        /* === FOOTER DEL POST === */
+        .post-footer {
+            margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(201,169,110,0.3);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+        }
+        .back-link {
+            color: #c9a96e; text-decoration: none; font-weight: bold; font-size: 1.1em;
+            display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;
+        }
+        .back-link:hover { color: #e8d4a8; transform: translateX(-5px); }
+        
+        .share-buttons { display: flex; gap: 12px; }
+        .share-btn {
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(201,169,110,0.1);
+            border: 1px solid #c9a96e; color: #c9a96e; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1.2em; transition: all 0.3s;
+        }
+        .share-btn:hover { background: #c9a96e; color: #0a0a0a; transform: translateY(-3px); }
+
+        /* === FOOTER GLOBAL === */
+        footer {
+            text-align: center; padding: 40px 20px; border-top: 3px solid #c9a96e;
+            color: #888; margin-top: 80px; font-size: 0.9em;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav-container { flex-wrap: wrap; gap: 0; }
+            .nav-item { width: 50%; min-width: auto; border: 1px solid rgba(201,169,110,0.3); border-right: none; border-bottom: none; }
+            .nav-item.radio-item { flex-direction: column; min-width: auto; width: 100%; gap: 5px; padding: 5px 12px; }
+            .nav-item:nth-child(even) { border-right: 1px solid rgba(201,169,110,0.3); }
+            .nav-item:nth-child(4n+3), .nav-item:nth-child(4n+4) { border-bottom: 1px solid rgba(201,169,110,0.3); }
+            .nav-item:last-child { border-bottom: none; }
+            .nav-logo { width: 35px; height: 35px; }
+            .nav-text { font-size: 0.7em; }
+            .radio-player-box { width: 100%; }
+            .radio-player-box iframe { height: 35px; }
+            .nav-spacer { height: 110px; }
+            .reading-progress { top: 110px; }
+            
+            .cronica-post { margin: 110px 15px 40px; padding: 30px 20px; }
+            .post-title { font-size: 2em; }
+            .post-content { font-size: 1.05em; }
+            .post-footer { flex-direction: column; text-align: center; }
+        }
+		.share-btn {
+    /* ... lo que ya tenés ... */
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.share-btn:hover {
+    /* ... lo que ya tenés ... */
+}
+    </style>
+</head>
+<body>
+
+    <!-- VIDEO DE FONDO -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="../images/vela-fondo.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- MENÚ SUPERIOR -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="https://creacionesweb1320.github.io" target="_blank" class="nav-item">
+                <img src="../images/icono.png" alt="Creaciones 13:20" class="nav-logo">
+                <span class="nav-text">Creaciones 13:20</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <img src="../images/logocronica.jpg" alt="Crónicas" class="nav-logo">
+                <span class="nav-text">Crónicas</span>
+            </a>
+            <div class="nav-item radio-item">
+                <a href="https://flashbackradio2025.github.io/" target="_blank" style="text-decoration: none;">
+                    <img src="../images/logo.png" alt="FlashBack Radio" class="nav-logo">
+                </a>
+                <div class="radio-player-box">
+                    <iframe src="../player.html"></iframe>
+                </div>
+            </div>
+            <a href="https://cafecito.app/flashbackradio" target="_blank" class="nav-item">
+                <video autoplay muted loop playsinline class="nav-logo" poster="../images/cafecito-poster.jpg">
+                    <source src="../images/cafecito.mp4" type="video/mp4">
+                    <img src="https://static.wixstatic.com/media/da6f98_5c139a923d8849978c3b8ce6ed99aeac~mv2.png" alt="Cafecito" class="nav-logo">
+                </video>
+                <span class="nav-text">Cafecito</span>
+            </a>
+            <a href="https://www.patreon.com/c/raulhora" target="_blank" class="nav-item">
+                <img src="https://static.wixstatic.com/media/da6f98_d7417aa13a9b4a75af096acc03354264~mv2.gif" alt="Patreon" class="nav-logo">
+                <span class="nav-text">Patreon</span>
+            </a>
+        </div>
+    </nav>
+    <div class="nav-spacer"></div>
+
+    <!-- BARRA DE PROGRESO -->
+    <div class="reading-progress" id="progressBar"></div>
+
+    <!-- CONTENIDO DE LA CRÓNICA (DENTRO DEL BOX OSCURO) -->
+    <article class="cronica-post">
+        <header class="post-header">
+            <div class="post-meta">
+                <span>📅 5 de Junio, 2026</span>
+                <span>⏱️ 5 min de lectura</span>
+                <span>📁 Introducción</span>
+            </div>
+            <h1 class="post-title">Bienvenidos a este espacio</h1>
+            <img src="../images/uritorco-portada.jpg" alt="Vista del Uritorco al amanecer" class="post-featured-image">
+        </header>
+
+        <div class="post-content">
+            <p>Este es el primer post de <strong>Crónicas desde el Uritorco</strong>. Acá vamos a compartir historias reales, leyendas documentadas e investigaciones sobre este lugar único. Sin humo, sin fabulaciones.</p>
+            
+            <h2>¿Por qué el Uritorco?</h2>
+            <p>Capilla del Monte no es solo un destino turístico. Es un punto de convergencia histórica, energética y cultural. Desde las formaciones rocosas que desafían la lógica, hasta los relatos de quienes habitan estas sierras hace generaciones, cada piedra cuenta una historia.</p>
+            
+            <blockquote>"No venimos a imponer verdades, sino a compartir lo que hemos visto, investigado y sentido. La verdad se construye entre todos."</blockquote>
+            
+            <h2>Qué vas a encontrar acá</h2>
+            <p>Crónicas documentadas, entrevistas a locales, análisis de archivos históricos, y reflexiones sobre la energía de este lugar. Todo con respeto, rigor y esa cuota de misterio que solo el Uritorco puede ofrecer.</p>
+            
+            <p>Gracias por estar. Abrí una crónica, poné la radio de fondo, y dejate llevar por las historias que estas sierras guardan.</p>
+        </div>
+
+<footer class="post-footer">
+    <a href="index.html" class="back-link">← Volver al Índice de Crónicas</a>
+    <div class="share-buttons">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/?text=Bienvenidos%20a%20este%20espacio%20-%20Crónicas%20desde%20el%20Uritorco%20https://cronicasdeluritorco.github.io/cronicas/bienvenidos.html" 
+           class="share-btn" 
+           title="Compartir en WhatsApp" 
+           target="_blank">
+           💬
+        </a>
+        
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://cronicasdeluritorco.github.io/cronicas/bienvenidos.html" 
+           class="share-btn" 
+           title="Compartir en Facebook" 
+           target="_blank">
+           f
+        </a>
+        
+        <!-- Copiar enlace -->
+        <button class="share-btn" 
+                title="Copiar enlace" 
+                onclick="navigator.clipboard.writeText('https://cronicasdeluritorco.github.io/cronicas/bienvenidos.html').then(() => alert('✅ Enlace copiado'))">
+           🔗
+        </button>
+    </div>
+</footer>
+    </article>
+
+    <footer>
+        <p>© 2025 Crónicas desde el Uritorco | Capilla del Monte, Córdoba, Argentina</p>
+    </footer>
+
+    <!-- SCRIPT BARRA DE PROGRESO -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+
+</body>
+</html>
