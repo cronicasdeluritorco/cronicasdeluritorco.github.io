@@ -13,14 +13,14 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://cronicasdeluritorco.github.io/">
     
-    <!-- FAVICONS (tus archivos) -->
+    <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="images/site.webmanifest">
 
-    <!-- Open Graph (Facebook, WhatsApp) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Crónicas desde el Uritorco">
     <meta property="og:description" content="Historias, leyendas e investigaciones desde las sierras de Córdoba. Un espacio para compartir, no para imponer.">
@@ -141,22 +141,22 @@
 
         .radio-player-box iframe {
             width: 100%;
-            height: 35px;  /* ← Era 45px, lo achicamos */
+            height: 65px;  /* ← CORREGIDO: Era 35px, ahora 65px para que entre el player */
             border: none;
             background: transparent;
         }
 
         .nav-spacer {
-            height: 140px;
+            height: 145px;  /* ← Ajustado: Era 140px */
         }
 
         /* Video de fondo */
         .video-background {
             position: fixed;
-            top: 140px;
+            top: 145px;  /* ← Ajustado: Era 140px */
             left: 0;
             width: 100%;
-            height: calc(100% - 140px);
+            height: calc(100% - 145px);  /* ← Ajustado */
             z-index: -2;
         }
 
@@ -170,10 +170,10 @@
 
         .overlay {
             position: fixed;
-            top: 140px;
+            top: 145px;  /* ← Ajustado: Era 140px */
             left: 0;
             width: 100%;
-            height: calc(100% - 140px);
+            height: calc(100% - 145px);  /* ← Ajustado */
             background: rgba(10, 10, 10, 0.2);
             z-index: -1;
         }
@@ -335,9 +335,9 @@
             .nav-logo { width: 40px; height: 40px; }
             .nav-text { font-size: 0.75em; }
             .hero-header { margin: 20px; }
-            .radio-player-box iframe { height: 30px; }
-            .nav-spacer { height: 120px; }
-            .video-background, .overlay { top: 120px; height: calc(100% - 120px); }
+            .radio-player-box iframe { height: 55px; }  /* ← Móvil: Era 30px, ahora 55px */
+            .nav-spacer { height: 130px; }  /* ← Ajustado móvil */
+            .video-background, .overlay { top: 130px; height: calc(100% - 130px); }  /* ← Ajustado */
         }
     </style>
 </head>
