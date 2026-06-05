@@ -67,7 +67,7 @@
             line-height: 1.6;
         }
 
-        /* === MENÚ SUPERIOR CON SEPARADORES === */
+        /* === MENÚ SUPERIOR COMPACTO === */
         .top-nav {
             position: fixed;
             top: 0;
@@ -75,7 +75,7 @@
             width: 100%;
             background: rgba(10, 10, 10, 0.98);
             border-bottom: 2px solid #c9a96e;
-            padding: 10px 0;
+            padding: 8px 0;
             z-index: 1000;
         }
 
@@ -84,7 +84,7 @@
             margin: 0 auto;
             display: flex;
             justify-content: center;
-            align-items: stretch;
+            align-items: center;
             gap: 0;
             padding: 0 20px;
         }
@@ -93,15 +93,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding: 6px 15px;
+            justify-content: center;
+            padding: 5px 15px;
             text-decoration: none;
             border-right: 1px solid rgba(201, 169, 110, 0.3);
-            min-width: 130px;
+            min-width: 120px;
             transition: all 0.3s ease;
         }
 
-        .nav-item:first-child {
+        /* FlashBack Radio - layout horizontal */
+        .nav-item.radio-item {
+            flex-direction: row;
+            gap: 10px;
+            min-width: 200px;
+            border-left: 1px solid rgba(201, 169, 110, 0.3);
+        }
+
+        .nav-item:first-child:not(.radio-item) {
             border-left: 1px solid rgba(201, 169, 110, 0.3);
         }
 
@@ -114,49 +122,46 @@
         }
 
         .nav-logo {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.6));
+            border-radius: 6px;
+            filter: drop-shadow(0 0 6px rgba(201, 169, 110, 0.6));
         }
 
         .nav-text {
             color: #c9a96e;
-            font-size: 0.85em;
+            font-size: 0.75em;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-align: center;
+            line-height: 1.2;
         }
 
-        /* Reproductor dentro del item */
+        /* Reproductor compacto horizontal */
         .radio-player-box {
-            width: 100%;
-            margin-top: 4px;
-            padding-top: 4px;
-            border-top: 1px solid rgba(201, 169, 110, 0.3);
+            width: 150px;
         }
 
         .radio-player-box iframe {
             width: 100%;
-            height: 65px;  /* ← CORREGIDO: Era 35px, ahora 65px para que entre el player */
+            height: 40px;
             border: none;
             background: transparent;
         }
 
         .nav-spacer {
-            height: 145px;  /* ← Ajustado: Era 140px */
+            height: 65px;
         }
 
         /* Video de fondo */
         .video-background {
             position: fixed;
-            top: 145px;  /* ← Ajustado: Era 140px */
+            top: 65px;
             left: 0;
             width: 100%;
-            height: calc(100% - 145px);  /* ← Ajustado */
+            height: calc(100% - 65px);
             z-index: -2;
         }
 
@@ -170,10 +175,10 @@
 
         .overlay {
             position: fixed;
-            top: 145px;  /* ← Ajustado: Era 140px */
+            top: 65px;
             left: 0;
             width: 100%;
-            height: calc(100% - 145px);  /* ← Ajustado */
+            height: calc(100% - 65px);
             background: rgba(10, 10, 10, 0.2);
             z-index: -1;
         }
@@ -322,6 +327,12 @@
                 border-right: none;
                 border-bottom: none;
             }
+            .nav-item.radio-item {
+                flex-direction: column;
+                min-width: auto;
+                width: 100%;
+                gap: 5px;
+            }
             .nav-item:nth-child(even) {
                 border-right: 1px solid rgba(201, 169, 110, 0.3);
             }
@@ -332,12 +343,20 @@
             .nav-item:last-child {
                 border-bottom: none;
             }
-            .nav-logo { width: 40px; height: 40px; }
-            .nav-text { font-size: 0.75em; }
+            .nav-logo { 
+                width: 35px; 
+                height: 35px; 
+            }
+            .nav-text { 
+                font-size: 0.7em; 
+            }
+            .radio-player-box {
+                width: 100%;
+            }
+            .radio-player-box iframe { height: 35px; }
+            .nav-spacer { height: 110px; }
+            .video-background, .overlay { top: 110px; height: calc(100% - 110px); }
             .hero-header { margin: 20px; }
-            .radio-player-box iframe { height: 55px; }  /* ← Móvil: Era 30px, ahora 55px */
-            .nav-spacer { height: 130px; }  /* ← Ajustado móvil */
-            .video-background, .overlay { top: 130px; height: calc(100% - 130px); }  /* ← Ajustado */
         }
     </style>
 </head>
@@ -351,7 +370,7 @@
     </div>
     <div class="overlay"></div>
 
-    <!-- === MENÚ SUPERIOR CON SEPARADORES === -->
+    <!-- === MENÚ SUPERIOR COMPACTO === -->
     <nav class="top-nav">
         <div class="nav-container">
             <a href="https://creacionesweb1320.github.io" target="_blank" class="nav-item">
@@ -364,11 +383,10 @@
                 <span class="nav-text">Crónicas</span>
             </a>
             
-            <!-- FlashBack Radio CON REPRODUCTOR INTEGRADO -->
+            <!-- FlashBack Radio CON REPRODUCTOR HORIZONTAL -->
             <div class="nav-item radio-item">
-                <a href="https://flashbackradio2025.github.io/" target="_blank" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
+                <a href="https://flashbackradio2025.github.io/" target="_blank" style="text-decoration: none;">
                     <img src="images/logo.png" alt="FlashBack Radio" class="nav-logo">
-                    <span class="nav-text">FlashBack Radio</span>
                 </a>
                 <div class="radio-player-box">
                     <iframe src="player.html"></iframe>
