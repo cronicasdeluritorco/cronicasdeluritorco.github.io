@@ -8,7 +8,7 @@
     <!-- SEO Primario -->
     <title>Crónicas desde el Uritorco | Historias, Leyendas e Investigaciones</title>
     <meta name="description" content="Portal de crónicas, leyendas e investigaciones sobre el Uritorco y Capilla del Monte. Historia real, geometría sagrada y la esencia de las sierras de Córdoba.">
-    <meta name="keywords" content="Uritorco, Capilla del Monte, leyendas, crónicas, historia, geometría sagrada, sierras de Córdoba, bastón de mando, Raúl Horas, misterios, investigaciones, Córdoba Argentina">
+    <meta name="keywords" content="Uritorco, Capilla del Monte, leyendas, crónicas, historia, geometría sagrada, sierras de Córdoba, bastón de mando, raulhora, misterios, investigaciones, Córdoba Argentina">
     <meta name="author" content="raulhora">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://cronicasdeluritorco.github.io/">
@@ -46,11 +46,11 @@
       "image": "https://cronicasdeluritorco.github.io/images/uritorco-portada.jpg",
       "author": {
         "@type": "Person",
-        "name": "Raúl Horas"
+        "name": "raulhora"
       },
       "publisher": {
         "@type": "Person",
-        "name": "Raúl Horas"
+        "name": "raulhora"
       },
       "datePublished": "2025-01-01",
       "inLanguage": "es-AR"
@@ -180,7 +180,7 @@
             z-index: -1;
         }
 
-        /* === CABECERA CON IMAGEN URITORCO === */
+        /* === CABECERA CON VIDEO URITORCO === */
         .hero-header {
             width: 100%;
             max-width: 1000px;
@@ -191,6 +191,14 @@
             box-shadow: 0 0 40px rgba(201, 169, 110, 0.4);
         }
 
+        .hero-header video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        /* Fallback para navegadores sin video */
         .hero-header img {
             width: 100%;
             height: auto;
@@ -409,9 +417,13 @@
 
     <div class="nav-spacer"></div>
 
-    <!-- === CABECERA CON IMAGEN DEL URITORCO === -->
+    <!-- === CABECERA CON VIDEO DEL URITORCO === -->
     <div class="hero-header">
-        <img src="images/uritorco-portada.jpg" alt="Crónicas desde el Uritorco">
+        <video autoplay muted playsinline>
+            <source src="images/uritorco-portada.mp4" type="video/mp4">
+            <!-- Fallback a imagen si el navegador no soporta video -->
+            <img src="images/uritorco-portada.jpg" alt="Crónicas desde el Uritorco">
+        </video>
     </div>
 
     <!-- === SECCIÓN DE INTRO === -->
